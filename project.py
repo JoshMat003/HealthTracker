@@ -460,11 +460,9 @@ def render_dashboard(username: str):
             st.rerun()
     # ── Water Goal ─────────────────────────────────────────────────
     st.subheader("Daily Water Intake Goal")
-    Goal = 8
-
+    goal = 8
     water = st.number_input("Glasses Drank: ", min_value = 0, max_value = 20, step = 1)
     progress = min(water /goal, 1.0)
-
     st.progress(progress)
     st.write(f"{water} / {goal} glasses")
 
