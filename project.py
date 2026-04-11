@@ -458,6 +458,13 @@ def render_dashboard(username: str):
             setGoal(username, goalInput)
             st.success("Goal Saved!")
             st.rerun()
+    # ── Water Goal ─────────────────────────────────────────────────
+    st.subheader("Daily Water Intake Goal")
+    goal = 8
+    water = st.number_input("Glasses Drank: ", min_value = 0, max_value = 20, step = 1)
+    progress = min(water /goal, 1.0)
+    st.progress(progress)
+    st.write(f"{water} / {goal} glasses")
 
     # ── Goal Progress Bar ─────────────────────────────────────────────────
     if has_data and currentGoal is not None:
